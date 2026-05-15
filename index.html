@@ -28,39 +28,79 @@
 
     <!-- Modal Pengaturan -->
     <div id="configModal" class="hidden fixed inset-0 bg-slate-900 bg-opacity-50 z-50 flex items-center justify-center backdrop-blur-sm transition-opacity">
-        <div class="bg-white rounded-xl shadow-xl w-11/12 max-w-md overflow-hidden">
-            <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                <h3 class="font-bold text-slate-700">Pengaturan Kapitalisasi</h3>
+        <div class="bg-white rounded-xl shadow-xl w-11/12 max-w-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50 shrink-0">
+                <h3 class="font-bold text-slate-700">Pengaturan Kata dan Kapitalisasi</h3>
                 <button onclick="toggleModal()" class="text-slate-400 hover:text-slate-600">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
             
-            <div class="p-6">
-                <p class="text-sm font-medium text-slate-700 mb-3">Kata yang selalu berawalan kapital:</p>
-                <div class="grid grid-cols-3 gap-3 mb-6" id="checkboxGroup">
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Tuhan" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Tuhan</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Allah" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Allah</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Yesus" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Yesus</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Kristus" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Kristus</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Roh Kudus" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Roh Kudus</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Bapa" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Bapa</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Engkau" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Engkau</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Dia" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Dia</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Nya" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Nya</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Mu" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Mu</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Ku" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>Ku</span></label>
-                    <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="I" class="eyd-cb rounded text-indigo-600 focus:ring-indigo-500" checked><span>I (Inggris)</span></label>
+            <div class="p-6 overflow-y-auto flex-grow">
+                <!-- Grid 2 Kolom untuk Bahasa -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <!-- B. Indonesia -->
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-700 mb-3 border-b pb-2">Bahasa Indonesia</h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Tuhan" class="exact-cb rounded text-indigo-600" checked><span>Tuhan</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Allah" class="exact-cb rounded text-indigo-600" checked><span>Allah</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Yesus" class="exact-cb rounded text-indigo-600" checked><span>Yesus</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Kristus" class="exact-cb rounded text-indigo-600" checked><span>Kristus</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Roh Kudus" class="exact-cb rounded text-indigo-600" checked><span>Roh Kudus</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Bapa" class="exact-cb rounded text-indigo-600" checked><span>Bapa</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Engkau" class="exact-cb rounded text-indigo-600" checked><span>Engkau</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Dia" class="exact-cb rounded text-indigo-600" checked><span>Dia</span></label>
+                        </div>
+                    </div>
+
+                    <!-- English -->
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-700 mb-3 border-b pb-2">English</h4>
+                        <div class="grid grid-cols-2 gap-2">
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Lord" class="exact-cb rounded text-indigo-600" checked><span>Lord</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="God" class="exact-cb rounded text-indigo-600" checked><span>God</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Jesus" class="exact-cb rounded text-indigo-600" checked><span>Jesus</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Christ" class="exact-cb rounded text-indigo-600" checked><span>Christ</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Holy Spirit" class="exact-cb rounded text-indigo-600" checked><span>Holy Spirit</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Father" class="exact-cb rounded text-indigo-600" checked><span>Father</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="You" class="exact-cb rounded text-indigo-600" checked><span>You</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Your" class="exact-cb rounded text-indigo-600" checked><span>Your</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="He" class="exact-cb rounded text-indigo-600" checked><span>He</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="His" class="exact-cb rounded text-indigo-600" checked><span>His</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Him" class="exact-cb rounded text-indigo-600" checked><span>Him</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="I" class="exact-cb rounded text-indigo-600" checked><span>I</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Me" class="exact-cb rounded text-indigo-600" checked><span>Me</span></label>
+                        </div>
+                    </div>
                 </div>
 
-                <p class="text-sm font-medium text-slate-700 mb-2">Tambahan kata lain:</p>
-                <p class="text-xs text-slate-500 mb-2">Pisahkan dengan koma (contoh: Haleluya, Hosana, Amin)</p>
-                <input type="text" id="customWords" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="Ketik kata tambahan di sini...">
+                <!-- Akhiran Digabung -->
+                <div class="mb-6 bg-slate-50 p-4 rounded-lg border border-slate-200">
+                    <h4 class="text-sm font-semibold text-slate-700 mb-2">Akhiran Digabung (Tanpa Spasi/Strip)</h4>
+                    <p class="text-xs text-slate-500 mb-3">Otomatis mengkapitalisasi akhiran (contoh: <em>pertolongannya</em> ➔ <em>pertolonganNya</em>).</p>
+                    
+                    <div class="flex gap-4 mb-4">
+                        <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="nya" class="suffix-cb rounded text-indigo-600" checked><span>-Nya</span></label>
+                        <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="mu" class="suffix-cb rounded text-indigo-600" checked><span>-Mu</span></label>
+                        <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="ku" class="suffix-cb rounded text-indigo-600"><span>-Ku</span></label>
+                    </div>
+
+                    <p class="text-xs font-medium text-slate-700 mb-1">Abaikan kata berikut (Pengecualian):</p>
+                    <input type="text" id="exceptionWords" class="w-full border border-slate-300 rounded-md p-2 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" value="hanya, punya, tanya, semuanya, selamanya, rupanya, kamu, tamu, ilmu, aku, buku, paku, laku, saku, waktu">
+                </div>
+
+                <!-- Custom Words -->
+                <div>
+                    <h4 class="text-sm font-semibold text-slate-700 mb-2">Tambahan Lainnya</h4>
+                    <p class="text-xs text-slate-500 mb-2">Pisahkan dengan koma. Penulisan huruf besar/kecil di sini akan dipertahankan. (Contoh: Haleluya, Hosana)</p>
+                    <input type="text" id="customWords" class="w-full border border-slate-300 rounded-lg p-2.5 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" placeholder="Ketik kata tambahan di sini...">
+                </div>
             </div>
 
-            <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex justify-end">
+            <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex justify-end shrink-0">
                 <button onclick="toggleModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-lg transition duration-200">
-                    Simpan & Tutup
+                    Simpan
                 </button>
             </div>
         </div>
@@ -100,7 +140,7 @@
                 </div>
                 <textarea id="col1" class="flex-grow p-4 border border-slate-300 rounded-lg shadow-inner focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm" placeholder="Tempelkan lirik yang ingin diedit di sini..."></textarea>
                 <button onclick="processToCol2()" class="mt-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-lg transition duration-200">
-                    Bersihkan & Rapikan ➔
+                    Sesuaikan ➔
                 </button>
             </div>
 
@@ -109,7 +149,7 @@
                 <div class="flex justify-between items-center mb-2">
                     <h2 class="font-semibold text-slate-700">2. Hasil Teks</h2>
                 </div>
-                <textarea id="col2" class="flex-grow p-4 border border-slate-300 rounded-lg shadow-inner focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm" placeholder="Lirik yang sudah bersih dari tanda baca dan rapi akan tampil di sini..."></textarea>
+                <textarea id="col2" class="flex-grow p-4 border border-slate-300 rounded-lg shadow-inner focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 text-sm" placeholder="Lirik yang sudah rapi akan tampil di sini..."></textarea>
                 <button onclick="processToCol3()" class="mt-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-lg transition duration-200">
                     Ubah ke HTML ➔
                 </button>
@@ -166,29 +206,34 @@
             modal.classList.toggle('hidden');
         }
 
-        function getCapitalizationWords() {
+        // Ambil kata utuh dari checkbox dan custom input
+        function getExactWords() {
             let words = [];
-            
-            const checkboxes = document.querySelectorAll('.eyd-cb:checked');
-            checkboxes.forEach(cb => {
-                words.push(cb.value);
-            });
+            document.querySelectorAll('.exact-cb:checked').forEach(cb => words.push(cb.value));
 
             const customInput = document.getElementById('customWords').value;
             if (customInput.trim() !== '') {
                 const customArray = customInput.split(',').map(w => w.trim()).filter(w => w.length > 0);
                 words = words.concat(customArray);
             }
-
             return words;
+        }
+
+        // Ambil data akhiran (nya, mu, ku)
+        function getSuffixes() {
+            let suffixes = [];
+            document.querySelectorAll('.suffix-cb:checked').forEach(cb => suffixes.push(cb.value));
+            return suffixes;
         }
 
         function processToCol2() {
             let text = document.getElementById('col1').value;
             if (!text.trim()) return;
 
+            // 1. Bersihkan tanda baca
             text = text.replace(/[,.;]/g, '');
 
+            // 2. Terapkan Sentence Case (kapitalisasi awal baris)
             let lines = text.split('\n');
             lines = lines.map(line => {
                 let trimmed = line.trim().toLowerCase();
@@ -199,16 +244,39 @@
             });
             text = lines.join('\n');
 
-            const wordsToCapitalize = getCapitalizationWords();
+            // 3. Proses Exact Words (Kata Berdiri Sendiri)
+            const exactWords = getExactWords();
+            // Urutkan dari yang terpanjang agar frasa seperti "Roh Kudus" dieksekusi duluan
+            exactWords.sort((a, b) => b.length - a.length);
 
-            wordsToCapitalize.forEach(word => {
+            exactWords.forEach(word => {
                 if(word.length > 0) {
                     const regex = new RegExp(`\\b${word}\\b`, 'gi');
-                    text = text.replace(regex, (match) => {
-                        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-                    });
+                    // Ganti dengan case persis seperti yang diinput user/checkbox
+                    text = text.replace(regex, word);
                 }
             });
+
+            // 4. Proses Suffix (Akhiran Digabung seperti -Nya, -Mu)
+            const suffixes = getSuffixes();
+            if (suffixes.length > 0) {
+                const exceptionInput = document.getElementById('exceptionWords').value;
+                const exceptions = exceptionInput.split(',').map(w => w.trim().toLowerCase());
+                
+                const suffixPattern = suffixes.join('|');
+                // Mencari kata yang berakhiran nya/mu/ku (contoh: pertolongannya)
+                const suffixRegex = new RegExp(`\\b([a-zA-Z]+)(${suffixPattern})\\b`, 'gi');
+                
+                text = text.replace(suffixRegex, (match, base, suffix) => {
+                    // Jika kata tersebut ada di daftar pengecualian (seperti "hanya"), abaikan
+                    if (exceptions.includes(match.toLowerCase())) {
+                        return match;
+                    }
+                    // Jika tidak, kapitalisasi akhirannya (pertolongan + Nya = pertolonganNya)
+                    const capitalizedSuffix = suffix.charAt(0).toUpperCase() + suffix.slice(1).toLowerCase();
+                    return base + capitalizedSuffix;
+                });
+            }
 
             document.getElementById('col2').value = text;
         }
