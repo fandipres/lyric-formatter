@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%234f46e5'/><text x='50' y='76' font-size='72' font-family='Arial,sans-serif' font-weight='bold' fill='white' text-anchor='middle'>L</text></svg>">
     <title>Lyric Formatter - Editor Lirik HTML</title>
     <meta name="description" content="Alat praktis untuk merapikan lirik lagu, menyesuaikan kapitalisasi, membersihkan tanda baca, dan mengubahnya ke format HTML.">
     <meta name="keywords" content="lyric formatter, editor lirik, konversi html lirik, eyd lirik, lyricspedia, worshipedia">
@@ -87,7 +88,7 @@
                     </div>
 
                     <p class="text-xs font-medium text-slate-700 mb-1">Abaikan kata berikut (Pengecualian):</p>
-                    <input type="text" id="exceptionWords" class="w-full border border-slate-300 rounded-md p-2 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" value="hanya, punya, tanya, semuanya, selamanya, rupanya, kamu, tamu, ilmu, aku, buku, paku, laku, saku, waktu">
+                    <input type="text" id="exceptionWords" class="w-full border border-slate-300 rounded-md p-2 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" value="hanya, punya, tanya, semuanya, selamanya, rupanya, segalanya, kamu, tamu, ilmu, aku, buku, paku, laku, saku, waktu">
                 </div>
 
                 <!-- Custom Words -->
@@ -262,18 +263,26 @@
             if (suffixes.length > 0) {
                 const exceptionInput = document.getElementById('exceptionWords').value;
                 const exceptions = exceptionInput.split(',').map(w => w.trim().toLowerCase());
-                
+
+                // Buat peta lowercase → exact word untuk pencocokan cepat (hanya kata tunggal)
+                const exactWordMap = {};
+                exactWords.forEach(w => {
+                    if (!w.includes(' ')) exactWordMap[w.toLowerCase()] = w;
+                });
+
                 const suffixPattern = suffixes.join('|');
-                // Mencari kata yang berakhiran nya/mu/ku (contoh: pertolongannya)
                 const suffixRegex = new RegExp(`\\b([a-zA-Z]+)(${suffixPattern})\\b`, 'gi');
-                
+
                 text = text.replace(suffixRegex, (match, base, suffix) => {
-                    // Jika kata tersebut ada di daftar pengecualian (seperti "hanya"), abaikan
                     if (exceptions.includes(match.toLowerCase())) {
                         return match;
                     }
-                    // Jika tidak, kapitalisasi akhirannya (pertolongan + Nya = pertolonganNya)
                     const capitalizedSuffix = suffix.charAt(0).toUpperCase() + suffix.slice(1).toLowerCase();
+                    // Jika kata dasar ada di daftar exact words, kapitalisasi kata dasarnya juga
+                    const matchedWord = exactWordMap[base.toLowerCase()];
+                    if (matchedWord) {
+                        return matchedWord + capitalizedSuffix;
+                    }
                     return base + capitalizedSuffix;
                 });
             }
