@@ -42,38 +42,50 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <!-- B. Indonesia -->
                     <div>
-                        <h4 class="text-sm font-semibold text-slate-700 mb-3 border-b pb-2">Bahasa Indonesia</h4>
+                        <div class="flex justify-between items-center border-b pb-2 mb-3">
+                            <h4 class="text-sm font-semibold text-slate-700">Bahasa Indonesia</h4>
+                            <div class="flex gap-3">
+                                <button onclick="toggleGroup('indo', true)" class="text-xs text-indigo-500 hover:text-indigo-700 font-medium">Semua</button>
+                                <button onclick="toggleGroup('indo', false)" class="text-xs text-slate-400 hover:text-slate-600 font-medium">Hapus</button>
+                            </div>
+                        </div>
                         <div class="grid grid-cols-2 gap-2">
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Tuhan" class="exact-cb rounded text-indigo-600" checked><span>Tuhan</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Allah" class="exact-cb rounded text-indigo-600" checked><span>Allah</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Yesus" class="exact-cb rounded text-indigo-600" checked><span>Yesus</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Kristus" class="exact-cb rounded text-indigo-600" checked><span>Kristus</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Roh Kudus" class="exact-cb rounded text-indigo-600" checked><span>Roh Kudus</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Bapa" class="exact-cb rounded text-indigo-600" checked><span>Bapa</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Engkau" class="exact-cb rounded text-indigo-600" checked><span>Engkau</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Kau" class="exact-cb rounded text-indigo-600" checked><span>Kau</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Dia" class="exact-cb rounded text-indigo-600" checked><span>Dia</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Juru Selamat" class="exact-cb rounded text-indigo-600" checked><span>Juru Selamat</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Tuhan" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Tuhan</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Allah" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Allah</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Yesus" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Yesus</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Kristus" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Kristus</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Roh Kudus" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Roh Kudus</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Bapa" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Bapa</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Engkau" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Engkau</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Kau" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Kau</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Dia" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Dia</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Juru Selamat" class="exact-cb exact-cb-indo rounded text-indigo-600" checked><span>Juru Selamat</span></label>
                         </div>
                     </div>
 
                     <!-- English -->
                     <div>
-                        <h4 class="text-sm font-semibold text-slate-700 mb-3 border-b pb-2">English</h4>
+                        <div class="flex justify-between items-center border-b pb-2 mb-3">
+                            <h4 class="text-sm font-semibold text-slate-700">English</h4>
+                            <div class="flex gap-3">
+                                <button onclick="toggleGroup('en', true)" class="text-xs text-indigo-500 hover:text-indigo-700 font-medium">Semua</button>
+                                <button onclick="toggleGroup('en', false)" class="text-xs text-slate-400 hover:text-slate-600 font-medium">Hapus</button>
+                            </div>
+                        </div>
                         <div class="grid grid-cols-2 gap-2">
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Lord" class="exact-cb rounded text-indigo-600" checked><span>Lord</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="God" class="exact-cb rounded text-indigo-600" checked><span>God</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Jesus" class="exact-cb rounded text-indigo-600" checked><span>Jesus</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Christ" class="exact-cb rounded text-indigo-600" checked><span>Christ</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Holy Spirit" class="exact-cb rounded text-indigo-600" checked><span>Holy Spirit</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Father" class="exact-cb rounded text-indigo-600" checked><span>Father</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="You" class="exact-cb rounded text-indigo-600" checked><span>You</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Your" class="exact-cb rounded text-indigo-600" checked><span>Your</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="He" class="exact-cb rounded text-indigo-600" checked><span>He</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="His" class="exact-cb rounded text-indigo-600" checked><span>His</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Him" class="exact-cb rounded text-indigo-600" checked><span>Him</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="I" class="exact-cb rounded text-indigo-600" checked><span>I</span></label>
-                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Me" class="exact-cb rounded text-indigo-600" checked><span>Me</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Lord" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>Lord</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="God" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>God</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Jesus" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>Jesus</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Christ" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>Christ</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Holy Spirit" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>Holy Spirit</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Father" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>Father</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="You" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>You</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Your" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>Your</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="He" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>He</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="His" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>His</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Him" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>Him</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="I" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>I</span></label>
+                            <label class="flex items-center space-x-2 text-sm cursor-pointer"><input type="checkbox" value="Me" class="exact-cb exact-cb-en rounded text-indigo-600" checked><span>Me</span></label>
                         </div>
                     </div>
                 </div>
@@ -209,6 +221,11 @@
             modal.classList.toggle('hidden');
         }
 
+        function toggleGroup(group, checked) {
+            const selector = group === 'indo' ? '.exact-cb-indo' : '.exact-cb-en';
+            document.querySelectorAll(selector).forEach(cb => cb.checked = checked);
+        }
+
         // Ambil kata utuh dari checkbox dan custom input
         function getExactWords() {
             let words = [];
@@ -240,10 +257,12 @@
             let lines = text.split('\n');
             lines = lines.map(line => {
                 let trimmed = line.trim().toLowerCase();
-                if(trimmed.length > 0) {
-                    return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
+                if (trimmed.length === 0) return trimmed;
+                // Jika diawali '(', kapitalisasi karakter setelahnya
+                if (trimmed.startsWith('(') && trimmed.length > 1) {
+                    return '(' + trimmed.charAt(1).toUpperCase() + trimmed.slice(2);
                 }
-                return trimmed;
+                return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
             });
             text = lines.join('\n');
 
@@ -324,7 +343,7 @@
             document.getElementById('col3').value = htmlOutput;
         }
 
-        function copyToClipboard() {
+function copyToClipboard() {
             const col3 = document.getElementById('col3');
             if (!col3.value.trim()) return;
 
