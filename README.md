@@ -1,4 +1,4 @@
-# 🚀 Lyric Formatter (Web App)
+# 🚀 Lyric Formatter
 
 A lightweight, client-side web tool built with Vanilla JS & Tailwind CSS to format song lyrics. Features include automated capitalization (EYD), punctuation removal, and HTML conversion.
 
