@@ -8,7 +8,46 @@
     <title>Lyric Formatter - Editor Lirik HTML</title>
     <meta name="description" content="Alat praktis untuk merapikan lirik lagu, menyesuaikan kapitalisasi, membersihkan tanda baca, dan mengubahnya ke format HTML.">
     <meta name="keywords" content="lyric formatter, editor lirik, konversi html lirik, eyd lirik, lyricspedia, worshipedia">
-    <meta name="author" content="Lyric Formatter">
+    <meta name="author" content="Fandi Presly Simamora">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="canonical" href="https://fandipres.github.io/lyric-formatter/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:title" content="Lyric Formatter - Editor Lirik HTML">
+    <meta property="og:description" content="Alat praktis untuk merapikan lirik lagu, menyesuaikan kapitalisasi, membersihkan tanda baca, dan mengubahnya ke format HTML.">
+    <meta property="og:url" content="https://fandipres.github.io/lyric-formatter/">
+    <meta property="og:image" content="https://fandipres.github.io/lyric-formatter/previews/home-page.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lyric Formatter - Editor Lirik HTML">
+    <meta name="twitter:description" content="Alat praktis untuk merapikan lirik lagu, menyesuaikan kapitalisasi, membersihkan tanda baca, dan mengubahnya ke format HTML.">
+    <meta name="twitter:image" content="https://fandipres.github.io/lyric-formatter/previews/home-page.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Lyric Formatter",
+        "url": "https://fandipres.github.io/lyric-formatter/",
+        "description": "Alat praktis untuk merapikan lirik lagu, menyesuaikan kapitalisasi, membersihkan tanda baca, dan mengubahnya ke format HTML.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "IDR"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Fandi Presly Simamora",
+            "url": "https://fandipres.my.id"
+        }
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -239,6 +278,11 @@
         </div>
     </main>
 
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 text-center text-xs text-slate-400 py-2 shrink-0">
+        Copyright &copy; <span id="year"></span> - Lyric Formatter. Created by <a href="https://fandipres.my.id" target="_blank" rel="noopener" class="text-indigo-500 hover:text-indigo-700 hover:underline">fandipres.my.id</a>.
+    </footer>
+
     <script>
         function formatAndCopyTitle() {
             const titleInput = document.getElementById('titleInput');
@@ -432,6 +476,8 @@ function copyToClipboard() {
                 }, 2000);
             });
         }
+
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
