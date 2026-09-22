@@ -355,16 +355,18 @@
             // 1. Bersihkan tanda baca
             text = text.replace(/[,.;]/g, '');
 
-            // 2. Terapkan Sentence Case (kapitalisasi awal baris)
+            // 2. Terapkan Sentence Case (kapitalisasi huruf pertama di setiap baris)
             let lines = text.split('\n');
             lines = lines.map(line => {
                 let trimmed = line.trim().toLowerCase();
                 if (trimmed.length === 0) return trimmed;
-                // Jika diawali '(', kapitalisasi karakter setelahnya
-                if (trimmed.startsWith('(') && trimmed.length > 1) {
-                    return '(' + trimmed.charAt(1).toUpperCase() + trimmed.slice(2);
-                }
-                return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
+                // Lewati penanda pengulangan di awal baris, mis. "2x", "(2x)", sebelum mencari huruf pertama kata
+                const markerMatch = trimmed.match(/^(\(?\d+\s*x\)?[\s.:-]*)/);
+                const searchStart = markerMatch ? markerMatch[0].length : 0;
+                const letterMatch = trimmed.slice(searchStart).match(/[a-z]/);
+                if (!letterMatch) return trimmed;
+                const idx = searchStart + letterMatch.index;
+                return trimmed.slice(0, idx) + trimmed.charAt(idx).toUpperCase() + trimmed.slice(idx + 1);
             });
             text = lines.join('\n');
 
