@@ -202,7 +202,7 @@
                         </div>
 
                         <p class="text-xs font-medium text-slate-700 mb-1">Abaikan kata berikut (Pengecualian):</p>
-                        <input type="text" id="exceptionWords" class="w-full border border-slate-300 rounded-md p-2 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" value="hanya, punya, tanya, semuanya, selamanya, rupanya, segalanya, kamu, tamu, ilmu, aku, buku, paku, laku, saku, waktu">
+                        <input type="text" id="exceptionWords" class="w-full border border-slate-300 rounded-md p-2 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500" value="hanya, punya, tanya, bertanya, semuanya, selamanya, rupanya, segalanya, kamu, tamu, ilmu, aku, buku, paku, laku, saku, waktu">
                     </div>
 
                     <!-- Custom Words -->
@@ -352,10 +352,15 @@
             let text = document.getElementById('col1').value;
             if (!text.trim()) return;
 
-            // 1. Bersihkan tanda baca
+            // 1. Bersihkan karakter tak terlihat & spasi berlebih
+            text = text.replace(/[​-‏‪-‮﻿­]/g, '');
+            text = text.replace(/ /g, ' ');
+            text = text.split('\n').map(line => line.replace(/[ \t]+/g, ' ').trim()).join('\n');
+
+            // 2. Bersihkan tanda baca
             text = text.replace(/[,.;]/g, '');
 
-            // 2. Terapkan Sentence Case (kapitalisasi huruf pertama di setiap baris)
+            // 3. Terapkan Sentence Case (kapitalisasi huruf pertama di setiap baris)
             let lines = text.split('\n');
             lines = lines.map(line => {
                 let trimmed = line.trim().toLowerCase();
@@ -370,7 +375,7 @@
             });
             text = lines.join('\n');
 
-            // 3. Proses Exact Words (Kata Berdiri Sendiri)
+            // 4. Proses Exact Words (Kata Berdiri Sendiri)
             const exactWords = getExactWords();
             // Urutkan dari yang terpanjang agar frasa seperti "Roh Kudus" dieksekusi duluan
             exactWords.sort((a, b) => b.length - a.length);
@@ -393,7 +398,7 @@
                 }
             });
 
-            // 4. Proses Suffix (Akhiran Digabung seperti -Nya, -Mu)
+            // 5. Proses Suffix (Akhiran Digabung seperti -Nya, -Mu)
             const suffixes = getSuffixes();
             if (suffixes.length > 0) {
                 const exceptionInput = document.getElementById('exceptionWords').value;
